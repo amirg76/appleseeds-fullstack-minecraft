@@ -1,0 +1,262 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.box {
+  background-color: rgb(0, 255, 72);
+  flex: 0 0 20px;
+  /* width: 20px; */
+  height: 20px;
+  text-align: center;
+}
+
+.test {
+  background-color: red;
+}
+
+.container {
+  display: flex;
+  justify-content: flex-end;
+  min-height: 100vh;
+  margin: 0 auto;
+}
+.grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* min-height: 85vh; */
+  /* background-color: blue; */
+  min-width: 600px;
+  /* flex: 1 0 auto; */
+  flex-grow: 4;
+}
+/* .mainGrid {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  min-width: 600px;
+  max-height: 100vh;
+  height: 85vh;
+  background-color: yellow;
+  flex: 0 0 auto;
+} */
+.mainGrid {
+  width: 100vmin;
+  height: 100vmin;
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(20, 1fr);
+}
+.sidebar {
+  background-color: black;
+  flex: 0 0 200px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+
+  /* gap: 5%;
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 200px; */
+  /* float: right; */
+  /* background-color: #896041; */
+}
+
+/* GAME STYLE */
+
+.block:hover {
+  border: 1px solid #fff;
+  border-right-width: 2px;
+  cursor: pointer;
+}
+.block[data-blockType="sky"] {
+  background-color: lightblue;
+}
+.block[data-blockType="dirt"] {
+  background: url(../assets/img/blockImg/Dirt.png) no-repeat center center/cover;
+}
+
+.block[data-blockType="grass"] {
+  background: url(../assets/img/blockImg/GrassBlock.png) no-repeat center
+    center/cover;
+}
+
+.block[data-blockType="leaves"] {
+  background: url(../assets/img/blockImg/Leaves.png) no-repeat center
+    center/cover;
+}
+
+.block[data-blockType="sand"] {
+  background: url(../assets/img/blockImg/Sand.png) no-repeat center center/cover;
+}
+
+.block[data-blockType="stone"] {
+  background: url(../assets/img/blockImg/Stone.png) no-repeat center
+    center/cover;
+}
+
+.block[data-blockType="wood"] {
+  background: url(../assets/img/blockImg/Wood.png) no-repeat center center/cover;
+}
+
+/* SIDE BAR STYLE */
+.tool-btn {
+  /* padding: 0.7rem 2.5rem; */
+  /* font-family: "Minecraft"; */
+  font-size: 1.5rem;
+  font-weight: 700;
+  /* letter-spacing: 1.5px; */
+  /* background: #858585; */
+  box-shadow: 2px 2px 2px 2px #595959;
+  /* box-shadow: inset 2px 2px 0 #a1a1a1, inset -4px -4px 0 #595959; */
+}
+.tool-btn:hover {
+  cursor: pointer;
+  background-color: blue;
+  color: #fff;
+}
+.tool {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center; */
+
+  padding: 1rem;
+}
+.tool img {
+  height: 80px;
+}
+.tool.active {
+  /* cursor: pointer; */
+  background-color: blue;
+  color: #fff;
+  /* background: #7e86bf; */
+}
+.tool.error {
+  /* background: #b66; */
+  background-color: red;
+}
+
+.bank {
+  /* display: inline-block; */
+  height: 50px;
+  width: 50px;
+  /* margin-top: 2rem; */
+  /* padding: 0; */
+}
+/* .bank[data-blockType="dirt"] {
+  background: url(/assets/img/blockImg/Dirt.png) no-repeat center center/contain;
+}
+.bank[data-blockType="grass"] {
+  background: url(/assets/img/blockImg/GrassBlock.png) no-repeat center
+    center/contain;
+}
+.bank[data-blockType="leaves"] {
+  background: url(/assets/img/blockImg/Leaves.png) no-repeat center
+    center/contain;
+}
+.bank[data-blockType="sand"] {
+  background: url(/assets/img/blockImg/Sand.png) no-repeat center center/contain;
+}
+.bank[data-blockType="stone"] {
+  background: url(/assets/img/blockImg/Stone.png) no-repeat center
+    center/contain;
+}
+.bank[data-blockType="wood"] {
+  background: url(/assets/img/blockImg/Wood.png) no-repeat center center/contain;
+} */
+.bank.active {
+  /* box-shadow: 2px 2px 2px 2px #595959; */
+  box-shadow: inset 2px 1px 0 #abd, inset -2px -3px 0 #78c;
+}
+.bank.error {
+  box-shadow: inset 2px 1px 0 #d99, inset -2px -3px 0 #b66;
+}
+
+.reset {
+  /* display: inline-block; */
+  height: 50px;
+  width: 50px;
+  /* padding: 0; */
+}
+.reset img {
+  height: 100%;
+  /* object-position: -2px; */
+  /* transform: rotate(90deg); */
+  /* transition: all 0.1s 0s ease-out; */
+}
+.reset img:hover {
+  /* object-position: -1px;
+  transform: rotate(45deg); */
+}
+
+@media (max-width: 999px) and (min-width: 768px) {
+  .container {
+    flex-direction: column;
+    /* max-height: 100vh; */
+  }
+  .grid {
+    /* min-height: 40vh; */
+    /* max-width: 100vh; */
+  }
+  .mainGrid {
+    /* min-height: 40vh; */
+    /* max-width: 100vh; */
+    /* margin: 0 auto; */
+    /* flex: 0 1 auto; */
+  }
+  .sidebar {
+    /* flex: 0 0 600px; */
+  }
+  .box {
+  }
+}
+@media (max-width: 768px) and (min-width: 480px) {
+  .container {
+    flex-direction: column;
+    /* max-height: 80vh; */
+  }
+  .grid {
+    /* max-height: 80vh; */
+    /* max-width: 60vh; */
+    /* margin: 0 50px; */
+  }
+  .mainGrid {
+    /* max-height: 80vh; */
+    /* flex: 1 0 auto; */
+    /* max-width: 50vh; */
+    /* margin: 0 100px; */
+  }
+  .sidebar {
+    flex: 1 0 100%;
+  }
+}
+@media (max-width: 480px) {
+  .container {
+    flex-direction: column;
+    /* max-height: 80vh; */
+    /* margin: 0; */
+  }
+  .grid {
+    /* max-height: 80vh; */
+    /* max-width: 60vh; */
+    max-width: 100px;
+    flex: 0 0 100%;
+  }
+  .mainGrid {
+    /* max-height: 80vh; */
+    /* flex: 1 0 auto; */
+    /* max-width: 50vh; */
+    /* margin: 0 100px; */
+    max-width: 100px;
+    flex: 0 0 100%;
+  }
+
+  .sidebar {
+    /* flex: 1 1 100%; */
+  }
+}
