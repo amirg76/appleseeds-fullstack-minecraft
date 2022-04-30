@@ -1,7 +1,80 @@
 const mainGrid = document.querySelector(".mainGrid");
 const toolPool = document.querySelectorAll(`[data-type="tool"]`);
+const startBtn = document.querySelector("#startBtn");
+const resetBtn = document.querySelector(".reset");
+console.log(resetBtn);
 
 const mineCraft = {
+  gameBorad: [
+    [
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 4, 4, 4],
+      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 4, 4],
+      [5, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 4, 4],
+      [5, 5, 5, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 1, 1, 4, 4],
+      [5, 5, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 5, 1, 1, 1],
+    ],
+    [
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 0, 0, 0, 0, 3, 3, 3, 3],
+      [0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 0, 0, 0, 3, 3, 3, 3],
+      [0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 0, 0, 3, 3, 3, 3, 3],
+      [0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 0, 0, 3, 3, 0, 6, 6],
+      [0, 0, 0, 0, 3, 0, 0, 0, 0, 3, 6, 3, 0, 0, 0, 0, 0, 0, 6, 6],
+      [0, 0, 0, 3, 3, 3, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 6, 6],
+      [0, 0, 3, 3, 3, 3, 0, 0, 0, 0, 6, 0, 0, 0, 0, 5, 5, 0, 6, 6],
+      [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 5, 5, 5, 1, 1],
+      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 1, 1],
+      [4, 4, 1, 1, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 4, 4],
+      [4, 4, 4, 4, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 1, 1, 4, 4],
+      [1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 5, 1, 1, 1, 1, 5, 5, 1, 1, 1],
+    ],
+    [
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3],
+      [0, 0, 3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3],
+      [0, 0, 3, 3, 6, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3],
+      [0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0],
+      [0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0],
+      [0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0],
+      [0, 0, 0, 0, 6, 0, 5, 5, 0, 0, 0, 0, 0, 5, 5, 5, 0, 0, 6, 0],
+      [0, 0, 0, 0, 6, 0, 5, 5, 0, 0, 0, 0, 0, 5, 5, 5, 0, 0, 6, 0],
+      [1, 4, 4, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 4, 4, 4, 2, 2, 2, 2],
+      [1, 4, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 4, 4, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    ],
+  ],
+  activeTool: null,
+
   blockTypesList: {
     empty: "empty",
     dirt: "dirt",
@@ -16,86 +89,51 @@ const mineCraft = {
     axe: ["wood", "leaves"],
     shovel: ["dirt", "grass", "sand"],
     sky: ["empty"],
-    // inventory: ["empty"],
   },
+  // RESET TOOLS FUNCTION//
+  resetTool() {
+    for (let j = 0; j < toolPool.length; j++) {
+      toolPool[j].setAttribute("data-active", "false");
+      toolPool[j].classList.remove("active");
+    }
+  },
+  //END RESET TOOLS FUNCTION //
 
-  gameBorad: [
-    // [
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 4, 4, 4],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 4, 4],
-    [5, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 4, 4],
-    [5, 5, 5, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 1, 1, 4, 4],
-    [5, 5, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 5, 1, 1, 1],
-    // ]
-    // ,
-    //     [
-    //       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    //       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    //       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    //       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    //       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    //       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    //       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3],
-    //       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3],
-    //       [0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 0, 0, 0, 0, 3, 3, 3, 3],
-    //       [0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 0, 0, 0, 3, 3, 3, 3],
-    //       [0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 0, 0, 3, 3, 3, 3, 3],
-    //       [0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 0, 0, 3, 3, 0, 6, 6],
-    //       [0, 0, 0, 0, 3, 0, 0, 0, 0, 3, 6, 3, 0, 0, 0, 0, 0, 0, 6, 6],
-    //       [0, 0, 0, 3, 3, 3, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 6, 6],
-    //       [0, 0, 3, 3, 3, 3, 0, 0, 0, 0, 6, 0, 0, 0, 0, 5, 5, 0, 6, 6],
-    //       [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 5, 5, 5, 1, 1],
-    //       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 1, 1],
-    //       [4, 4, 1, 1, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 4, 4],
-    //       [4, 4, 4, 4, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 1, 1, 4, 4],
-    //       [1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 5, 1, 1, 1, 1, 5, 5, 1, 1, 1],
-    //     ],
-    //     [
-    //       [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-    //       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    //       [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-    //       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    //       [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-    //       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    //       [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 0, 0, 3, 3],
-    //       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3],
-    //       [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3],
-    //       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3],
-    //       [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3],
-    //       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3],
-    //       [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3],
-    //       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3],
-    //       [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3],
-    //       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3],
-    //       [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3],
-    //       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3],
-    //       [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3],
-    //       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3],
-    //     ],
-  ],
+  // STATUS OF THE BANK //
+  currentBank: {
+    choiseBankStatus: document.querySelector(`[data-tool="bank"]`),
+    blockTypeInBank: ["empty"],
+  },
+  // GET THE ACTIVE TOOL
+  getActiveTool() {
+    return mineCraft.activeTool;
+  },
+  // SET ERROR TO THE TOOL IF WORNG TYPE OF ACTIVATE //
+  setError(toolError) {
+    toolError.classList.add("error");
+    setTimeout(() => {
+      toolError.classList.remove("error");
+    }, 200);
+  },
+  // END SET ERROR TO THE TOOL IF WORNG TYPE OF ACTIVATE //
+
+  // MAIN FUNCTION//
   letsPlay() {
     this.draw();
     this.listenerTool();
     this.setBank(this.blockTypesList.empty);
   },
+
+  // DRAW FIRST TIME GAME BOARD//
   draw() {
-    for (let row = 0; row < this.gameBorad.length; row++) {
-      for (let colum = 0; colum < this.gameBorad[row].length; colum++) {
+    const randBoard = Math.floor(Math.random() * 3);
+
+    for (let row = 0; row < this.gameBorad[randBoard].length; row++) {
+      for (
+        let colum = 0;
+        colum < this.gameBorad[randBoard][row].length;
+        colum++
+      ) {
         const newDiv = document.createElement("div");
         newDiv.classList.add("block");
         const attr = document.createAttribute("data-blockType");
@@ -103,7 +141,8 @@ const mineCraft = {
         attr.value = "empty";
         mainGrid.appendChild(newDiv);
 
-        switch (this.gameBorad[row][colum]) {
+        // FILL EVERY NEW DIV WITH HIS BLOCK TYPE
+        switch (this.gameBorad[randBoard][row][colum]) {
           case 0:
             attr.value = "sky";
             break;
@@ -126,21 +165,16 @@ const mineCraft = {
             attr.value = "wood";
             break;
         }
-
+        // WAITING FOR CLICK ON THE DIV IN GAME BOARD
         newDiv.addEventListener("click", function () {
-          console.log(newDiv);
-
           mineCraft.blockChoise(newDiv);
         });
       }
     }
   },
-  resetTool() {
-    for (let j = 0; j < toolPool.length; j++) {
-      toolPool[j].setAttribute("data-active", "false");
-      toolPool[j].classList.remove("active");
-    }
-  },
+  // END OF DRAW FUNCTION//
+
+  // LISTEN TO CLICK ON TOOL SIDE BAR//
   listenerTool() {
     for (let i = 0; i < toolPool.length; i++) {
       toolPool[i].addEventListener("click", function () {
@@ -151,101 +185,102 @@ const mineCraft = {
         this.setAttribute("data-active", "true");
         this.classList.add("active");
         mineCraft.activeTool = this.getAttribute("data-tool");
-        console.log(mineCraft.activeTool);
       });
     }
   },
-  currentBank: {
-    choiseBankStatus: document.querySelector(`[data-tool="bank"]`),
-    blockTypeInBank: ["empty"],
-  },
+  //END LISTEN TO CLICK ON TOOL SIDE BAR//
+
+  // CHANGING STATUS IN THE BANK //
   setBank(blockType) {
+    const currentBankStatus = this.currentBank.choiseBankStatus;
+    const blockTypeInBank = this.currentBank.blockTypeInBank;
+
     if (blockType === this.blockTypesList.empty) {
-      this.currentBank.blockTypeInBank.shift();
-      if (!this.currentBank.blockTypeInBank.length)
-        this.currentBank.blockTypeInBank.unshift(this.blockTypesList.empty);
+      currentBankStatus.setAttribute("data-active", "false");
+      blockTypeInBank.shift();
+      if (!blockTypeInBank.length)
+        blockTypeInBank.unshift(this.blockTypesList.empty);
     } else {
-      this.currentBank.blockTypeInBank.unshift(blockType);
+      blockTypeInBank.unshift(blockType);
     }
-    this.currentBank.choiseBankStatus.dataset.blockType =
-      this.currentBank.blockTypeInBank[0];
-    this.currentBank.choiseBankStatus.setAttribute("data-blockType", blockType);
-    console.log("yes");
+
+    currentBankStatus.setAttribute("data-blockType", blockType);
+
+    // listen if choise the bank
+    currentBankStatus.addEventListener("click", function () {
+      const currentBank = mineCraft.currentBank.blockTypeInBank[0];
+      const bankStatus = mineCraft.currentBank.choiseBankStatus;
+      if (bankStatus.getAttribute("data-active") === "true") {
+      } else if (
+        bankStatus.getAttribute("data-active") === "false" &&
+        bankStatus.getAttribute("data-blockType") !== "empty"
+      ) {
+        bankStatus.setAttribute("data-active", "true");
+
+        //disable active tool
+        mineCraft.activeTool = null;
+        for (let j = 0; j < toolPool.length; j++) {
+          if (toolPool[j].getAttribute("data-active") === "true") {
+            toolPool[j].setAttribute("data-active", "false");
+            toolPool[j].classList.remove("active");
+          }
+        }
+      }
+    });
   },
-  activeTool: null,
-  getActiveTool() {
-    return mineCraft.activeTool;
-  },
-  setError(toolError) {
-    toolError.classList.add("error");
-    setTimeout(() => {
-      toolError.classList.remove("error");
-    }, 200);
-  },
+  //END CHANGING STATUS IN THE BANK //
+
+  // BEHAIVE OF CHOISE DIV//
   blockChoise(block) {
-    const getBlockAtt = block.getAttribute("data-blockType");
-    if (mineCraft.activeTool) {
-      if (mineCraft.toolUsage[mineCraft.activeTool].includes(getBlockAtt)) {
-        mineCraft.setBank(getBlockAtt);
+    const getBlockAttType = block.getAttribute("data-blockType");
+    const bankStatus = mineCraft.currentBank.choiseBankStatus;
+    //check if tool was choise and noting in bank
+    if (
+      mineCraft.activeTool &&
+      bankStatus.getAttribute("data-active") === "false"
+    ) {
+      //check if tool is work for kind of blocktype
+      if (mineCraft.toolUsage[mineCraft.activeTool].includes(getBlockAttType)) {
+        mineCraft.setBank(getBlockAttType);
         block.setAttribute("data-blockType", "sky");
-      } else {
+      }
+      // trow error on tool if no tool choise
+      else {
         const toolError = document.querySelector(
           `[data-tool="${mineCraft.activeTool}`
         );
-        console.log(toolError);
         mineCraft.setError(toolError);
       }
-
-      // console.log(mineCraft.toolUsage["pickaxe"]);
+    } else if (
+      bankStatus.getAttribute("data-active") === "true" &&
+      getBlockAttType === "sky"
+    ) {
+      // fill div with img from bank
+      const bankImg = mineCraft.currentBank.blockTypeInBank[0];
+      block.setAttribute("data-blockType", bankImg);
+      // change status of bank to empty
+      bankStatus.setAttribute("data-active", "false");
+      mineCraft.setBank("empty");
     }
   },
+  //END BEHAIVE OF CHOISE DIV//
 
-  // blockChoise(block) {
-  //   const currentActiveTool = mineCraft.getActiveTool();
-  //   if (activeTool) {
-  //     if (activeTool.toolUsage.includes(block.type)) {
-  //       if (activeTool.toolType === TOOL_TYPE_ENUM.inventory) {
-  //         if (block.checkPhysics(gameMatrix)) {
-  //           block.type = getInventory();
-  //           if (block.type === BLOCK_TYPES.sand) {
-  //             droppingBlocks.push(block.dropBlock(gameMatrix));
-  //           }
-  //           this.setBank(this.blockTypesList.empty);
-  //         }
-  //       } else {
-  //         setInventory(block.type);
-  //         block.type = BLOCK_TYPES.empty;
-  //         checkFallingBlocks(block);
-  //       }
-  //     } else {
-  //       this.currentBank.classList.add("error");
-  //       currentActiveTool.indicateError();
-  //     }
-  //   }
-  // },
+  // START BUTTON WELCOME//
 
-  //   generateWorld() {
-  //     mainGrid.innerHTML = "";
-  //     const randWorld = this.gameBorad[Math.floor(Math.random() * 3)];
-  //     for (let y = 0; y < this.gameBorad.length; y++) {
-  //       for (let x = 0; x < this.gameBorad[y].length; x++) {
-  //         appendNewBlock(x, y, randWorld);
-  //         this.gameBorad[y][x].htmlEl.addEventListener("click", (_) => {
-  //           blockClick(this.gameBorad[y][x]);
-  //         });
-  //         worldEl.append(this.gameBorad[y][x].htmlEl);
-  //       }
-  //     }
-  //   },
-  //   /////////////
-  //   appendNewBlock(x, y, worldTemplate) {
-  //     const blockType = blockTypeNum[worldTemplate[y][x]];
-  //     const newDiv = document.createElement("div");
-  //     newDiv.classList.add("block");
-  //     newDiv.setAttribute("data-blockType", blockTypeNum[worldTemplate[y][x]]);
-  //     this.gameBorad[y][x] = new Block(blockType, x, y, newDiv);
-  //   },
-  //   ///////////////////////
-}; //end of main object
+  startBtnClick(e) {
+    const titleScreenEl = document.querySelector("#titleScreen");
+    titleScreenEl.classList.add("hidden");
+    setTimeout(() => {
+      titleScreenEl.style.display = "none";
+    }, 800);
+    mineCraft.letsPlay();
+  },
 
-mineCraft.letsPlay();
+  // RESTART GAME
+  reloadGame() {
+    location.reload();
+  },
+}; // END OF MAIN OBJECT
+
+startBtn.addEventListener("click", mineCraft.startBtnClick);
+resetBtn.addEventListener("click", mineCraft.reloadGame);

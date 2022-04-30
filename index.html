@@ -8,68 +8,77 @@
     <link rel="stylesheet" href="./styles/desktop.style.css" />
     <link
       rel="stylesheet"
-      media="(max-width:999px)"
+      media="(max-width: 1499px)"
       href="/styles/mobile.style.css"
     />
+
     <title>Document</title>
   </head>
   <body>
-    <div class="container">
-      <div class="grid">
-        <div class="mainGrid"></div>
+    <main>
+      <!-- welcome screen -->
+      <div id="titleScreen">
+        <h1></h1>
+        <button id="startBtn" class="toolBtn">START</button>
       </div>
-      <div class="sidebar">
-        <button
-          class="tool tool-btn"
-          data-tool="pickaxe"
-          data-type="tool"
-          data-active="false"
-        >
-          <img
-            src="./assets/img/Pickaxe.png"
-            alt="Pickaxe-tool"
-            class="tool-img"
-          />
-          <p>Pickaxe</p>
-        </button>
+      <!-- Main Game -->
+      <div class="container">
+        <div class="grid">
+          <div class="mainGrid"></div>
+        </div>
+        <div class="sidebar">
+          <button
+            class="toolBtn"
+            data-tool="pickaxe"
+            data-type="tool"
+            data-active="false"
+          >
+            <img
+              src="./assets/img/Pickaxe.png"
+              alt="Pickaxe-tool"
+              class="tool-img"
+            />
+            <p>Pickaxe</p>
+          </button>
 
-        <button
-          class="tool tool-btn"
-          data-tool="shovel"
-          data-type="tool"
-          data-active="false"
-        >
-          <img
-            src="./assets/img/Shovel.png"
-            alt="Shovel-tool"
-            class="tool-img"
-          />
-          <p>Shovel</p>
-        </button>
+          <button
+            class="toolBtn"
+            data-tool="shovel"
+            data-type="tool"
+            data-active="false"
+          >
+            <img
+              src="./assets/img/Shovel.png"
+              alt="Shovel-tool"
+              class="tool-img"
+            />
+            <p>Shovel</p>
+          </button>
 
-        <button
-          class="tool tool-btn"
-          data-tool="axe"
-          data-type="tool"
-          data-active="false"
-        >
-          <img src="./assets/img/Axe.png" alt="Axe-tool" class="tool-img" />
-          <p>Axe</p>
-        </button>
+          <button
+            class="toolBtn"
+            data-tool="axe"
+            data-type="tool"
+            data-active="false"
+          >
+            <img src="./assets/img/Axe.png" alt="Axe-tool" class="tool-img" />
+            <p>Axe</p>
+          </button>
 
-        <button
-          class="bank block tool-btn"
-          data-tool="bank"
-          data-blockType="sky"
-        ></button>
+          <button
+            class="bank block toolBtn"
+            data-tool="bank"
+            data-blockType="sky"
+            data-active="false"
+          ></button>
 
-        <button class="reset tool-btn" type="reset">
-          <img src="./assets/img/Reset-Arrow.png" alt="Reset-arrow" />
-        </button>
+          <button class="reset resetBtn" type="reset">
+            <img src="./assets/img/Reset-Arrow.png" alt="Reset-arrow" />
+          </button>
+        </div>
       </div>
-    </div>
-    <!-- container end -->
-
+      <!-- container end -->
+    </main>
     <script src="./app.js"></script>
   </body>
 </html>
