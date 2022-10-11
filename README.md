@@ -1,5 +1,6 @@
-# appleseeds-fullstack-minecraft-project
-
+# Minecraft-Game
+<img src="assets/screen-shots/home-page.png" width="500">
+<img src="assets/screen-shots/game-page.png" width="500">
 **Version 1.00**
 This is a simple fun version of minecraft game.
 
