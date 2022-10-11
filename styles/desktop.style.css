@@ -43,6 +43,7 @@ html {
 }
 .grid {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-width: 600px;
@@ -52,7 +53,6 @@ html {
 .mainGrid {
   width: 100vmin;
   height: 100vmin;
-
   display: grid;
   grid-template-columns: repeat(20, 1fr);
   grid-template-rows: repeat(20, 1fr);
